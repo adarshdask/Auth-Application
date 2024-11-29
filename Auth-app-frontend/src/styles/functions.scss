@@ -1,0 +1,6 @@
+@use "./variables" as variables;
+
+@function calculateRem($size) {
+  $remSize: calc($size / variables.$base-font-size);
+  @return $remSize * 1rem;
+}

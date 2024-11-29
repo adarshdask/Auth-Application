@@ -1,0 +1,119 @@
+@use "./fonts" as fonts;
+@use "./variables" as variables;
+@use "./functions" as functions;
+@use "./mixins" as mixins;
+
+body {
+  @include fonts.inter-regular;
+  background: variables.$background;
+}
+
+form {
+  label {
+    @include mixins.flexbox();
+    @include mixins.justify-content(flex-start);
+    @include mixins.fontSize(13);
+    font-weight: 500;
+  }
+  .input {
+    width: 100%;
+    @include mixins.fontSize(13);
+    @include mixins.padding(10);
+    border-radius: 6px;
+    &:focus {
+      border-color: variables.$primary-color;
+      box-shadow: none;
+    }
+  }
+}
+
+.btn-primary {
+  background-color: variables.$primary-color;
+  border: none;
+  font-weight: 500;
+  @include mixins.width(160);
+  @include mixins.padding(10, 20);
+  &:hover,
+  &:active,
+  &:focus-visible {
+    border: none;
+    background-color: variables.$primary-color-hover;
+  }
+}
+
+.error {
+  @include mixins.fontSize(11);
+  color: variables.$error;
+  @include mixins.flexbox();
+  @include mixins.justify-content(flex-start);
+  margin-top: functions.calculateRem(2);
+}
+
+.info {
+    @include mixins.width(16);
+    margin-left: functions.calculateRem(2);
+}
+
+.dashboard {
+  @include mixins.flexbox();
+  @include mixins.justify-content(center);
+  background-color: variables.$background;
+  height: 100vh;
+  @include mixins.align-items(center);
+  .welcome-box {
+    @include mixins.padding(26);
+    text-align: center;
+    background-color: variables.$white;
+    border-radius: 8px;
+    min-width: functions.calculateRem(600);
+    img {
+      @include mixins.width(240);
+      height: auto;
+    }
+    .welcome-msg {
+      font-weight: 500;
+      @include mixins.fontSize(16);
+    }
+    .logout-btn {
+      text-decoration: none;
+    }
+  }
+}
+
+.login {
+  @include mixins.flexbox();
+  @include mixins.justify-content(center);
+  background-color: variables.$background;
+  height: 100vh;
+  @include mixins.align-items(center);
+  .login-box {
+    @include mixins.padding(26);
+    @include mixins.width(240);
+    text-align: center;
+    background-color: variables.$white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px 0px variables.$login-box-shadow;
+    min-width: functions.calculateRem(420);
+    .header {
+      img {
+        @include mixins.width(240);
+        height: auto;
+      }
+    }
+    .login-form {
+      @include mixins.padding(20);
+    }
+    .footer {
+      margin-top: functions.calculateRem(32);
+      @include mixins.flexbox();
+      @include mixins.justify-content(center);
+      @include mixins.align-items(center);
+
+      .create-account-link {
+        font-weight: 500;
+        @include mixins.fontSize(12);
+        text-decoration: none;
+      }
+    }
+  }
+}

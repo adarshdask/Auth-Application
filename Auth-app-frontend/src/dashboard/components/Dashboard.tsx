@@ -10,7 +10,7 @@ function Dashboard() {
         <div className="logo">
           <img src="/images/logo.svg" alt="Logo" />
         </div>
-        <div className="welcome-msg mt-4">Welcome to the application</div>
+        <div className="welcome-msg mt-4">Welcome to the application.</div>
         <button className="btn btn-link logout-btn" onClick={handleLogout}>
           Logout
         </button>
